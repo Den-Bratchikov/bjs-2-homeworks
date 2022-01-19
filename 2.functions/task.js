@@ -40,10 +40,10 @@ function makeWork(arrOfArr, func) {
   let max = -Infinity;
  
   for (let i = 0; i < arrOfArr.length; i++) {
-    let sum = func(arrOfArr[i]);
+    let sum1 = func(arrOfArr[i]);
 
-    if (sum > max) {
-      max = sum;
+    if (sum1 > max) {
+      max = sum1;
     }
   }
   
