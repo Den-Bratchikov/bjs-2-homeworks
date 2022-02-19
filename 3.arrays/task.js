@@ -1,12 +1,17 @@
 function compareArrays(arr1, arr2) {
-  return result = arr2.every(function (element, index) {
-    return arr1.includes(element, index);
-  })
+  if (arr1.length === arr2.length) { 
+    arr1.every( )
+  }  
 }
 
+// Необходимо использовать пару аргументов у функции колбека.
+// Вам нужно сравнивать перебираемый элемент 
+// с элементом на этой же (перебираемой позиции) у другого массива.
+// может еври в еври
+
+// Функция callback вызывается с тремя аргументами: 
+// значением элемента, индексом элемента и массивом, по которому осуществляется проход.
 
 function advancedFilter(arr) {
-  
-  return resultArr = arr.filter(n => n > 0 && n % 3 ===0).map(item => item * 10);
-    
+  return arr.filter(n => n > 0 && n % 3 === 0).map(item => item * 10);
 }
