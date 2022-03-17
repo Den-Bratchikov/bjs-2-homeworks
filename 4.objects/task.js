@@ -1,8 +1,8 @@
 function Student(name, gender, age) {
   return {
-    name,
-    gender,
-    age,
+    this.name = name
+    this.gender = gender
+    this.age = age
   }
 }
 
@@ -11,6 +11,7 @@ Student.prototype.setSubject = function(subjectName) {
 }
 
 Student.prototype.addMark = function(mark) {
+  this.marks = []
   if(this.marks === undefined){ 
     this.marks = marks.push (mark); 
     } else {
@@ -18,7 +19,7 @@ Student.prototype.addMark = function(mark) {
     }
 }
 
-Student.prototype.addMarks = function(mark1, mark2, mark3,...markX) {
+Student.prototype.addMarks = function(...marks) {
   if(this.marks === undefined) {
     this.marks = marks.push (mark);
   } else {

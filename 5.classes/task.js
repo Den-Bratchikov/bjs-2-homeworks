@@ -69,6 +69,29 @@ class DetectiveBook extends Book {
 }
 
 
+class Library {
+    constructor (name) {
+        if (typeof name === String) {
+            this.name = name
+        }
+        
+        this.books = []
+    }
+
+    addBook(book) {
+        if (this.state > 30) {
+            this.books.push(book)
+        }
+    }
+
+    findBookBy(type, value) {
+        return Object.entries(this).find((element) => element === [type, value])
+    }
+}
+
+
+
+
 // function newFunction() {
-//     return this;
+    // return this;
 // }
