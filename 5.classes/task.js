@@ -1,5 +1,6 @@
 class PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
+        this.name = name
         this.state = 100
         this.type = null
         this.releaseDate = releaseDate
@@ -13,8 +14,10 @@ class PrintEditionItem {
     set state(n) {
         if (n > 100) {
             this._state = 100;
-        } else {
+        } else if (n >= 0) {
             this._state = n;
+        } else if (n < 0) {
+            this._state = 0
         }
     }
 
@@ -79,13 +82,44 @@ class Library {
     }
 
     addBook(book) {
-        if (this.state > 30) {
+        if (book.state > 30) {
             this.books.push(book)
         }
     }
 
-    findBookBy(type, value) {
-        return Object.entries(this).find((element) => element === [type, value])
+    findBookBy(searchKey, value) {
+         // Способ 1. Императивный.
+        for (let i = 0; i < this.books.length; i++) {
+            let count = 0;
+            
+            for (let key in this.books[i]) {
+            count++
+            }
+        
+            for (let i = 0; i < count; i++) {
+                if (this.books[i][searchKey] === value ) {
+                    console.log(this.books[i].name)
+                }
+            }
+        }
+        
+          // Способ 2. Декларативный.
+        let result = this.books.find(book => book[key] === value).name
+        if (result === undefined) {
+            console.log(null)
+        } else {
+            console.log(result)
+        }
+    }
+
+    giveBookByName(bookName) {
+        let n = this.books.findIndex(book => book.name === bookName)
+        if (n != undefined) {
+            this.books.splice(n, 1)
+            console.log(this.books[n])
+        } else {
+            console.log(null)
+        }
     }
 }
 
