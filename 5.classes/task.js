@@ -74,7 +74,7 @@ class DetectiveBook extends Book {
 
 class Library {
     constructor (name) {
-        if (typeof name === String) {
+        if (typeof name === "string") {
             this.name = name
         }
         
@@ -88,37 +88,39 @@ class Library {
     }
 
     findBookBy(searchKey, value) {
-         // Способ 1. Императивный.
-        for (let i = 0; i < this.books.length; i++) {
-            let count = 0;
+        // Способ 1. Императивный.
+        // for (let i = 0; i < this.books.length; i++) {
+        //     let count = 0;
             
-            for (let key in this.books[i]) {
-            count++
-            }
+        //     for (let key in this.books[i]) {
+        //     count++
+        //     }
         
-            for (let i = 0; i < count; i++) {
-                if (this.books[i][searchKey] === value ) {
-                    console.log(this.books[i].name)
-                }
-            }
-        }
+        //     for (let i = 0; i < count; i++) {
+        //         if (this.books[i][searchKey] === value ) {
+        //             console.log(this.books[i].name)
+        //         }
+        //     }
+        // }
         
-          // Способ 2. Декларативный.
-        let result = this.books.find(book => book[key] === value).name
+        // Способ 2. Декларативный.
+        let result = this.books.find(book => book[searchKey] === value)
         if (result === undefined) {
-            console.log(null)
+            return null
         } else {
-            console.log(result)
+            return result
         }
     }
 
     giveBookByName(bookName) {
         let n = this.books.findIndex(book => book.name === bookName)
-        if (n != undefined) {
+        if (n > -1) {
+            let result = this.books[n]
             this.books.splice(n, 1)
-            console.log(this.books[n])
+            return result
+
         } else {
-            console.log(null)
+            return null
         }
     }
 }
