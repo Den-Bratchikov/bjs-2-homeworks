@@ -32,13 +32,12 @@ class Triangle {
     }
 
     getPerimeter() {
-        let perimeter = this.a + this.b + this.c
-        return perimeter
+        return this.a + this.b + this.c;
     }
                      
     getArea() {
-        let p = (this.a + this.b + this.c) / 2
-        return Number(Math.sqrt(p * (p-this.a) * (p-this.b) * (p-this.c)).toFixed(3))
+        let p = this.getPerimeter() / 2;
+        return Number(Math.sqrt(p * (p-this.a) * (p-this.b) * (p-this.c)).toFixed(3));
     }
 }
 
